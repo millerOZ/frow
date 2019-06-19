@@ -1,12 +1,10 @@
 package com.sofka.frowFinal.controlador;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,12 +24,8 @@ public class ProductoControlador {
 	private ProductoInterfaz productoInterfaz;
 	
 	@GetMapping
-	public List<Producto> getProductos(){
+	public List<Producto> getProducto(){
 		return productoInterfaz.getProductos();
-	}
-	@GetMapping("/{idproducto}")
-	public Optional<Producto> consultaProducto(@PathVariable(value = "idproducto") ObjectId idproducto) {
-		return  productoInterfaz.consultaProducto(idproducto);
 	}
 	@PostMapping
 	public void agregarProducto(@RequestBody Producto producto) {
@@ -41,9 +35,4 @@ public class ProductoControlador {
 	public void editarProducto(@PathVariable(value = "idproducto") ObjectId idproducto, @RequestBody Producto producto) {
 		productoInterfaz.editarProducto(idproducto, producto);
 	}
-	@DeleteMapping("/{idproducto}")
-	public void eliminarProducto(@PathVariable(value = "idproducto") ObjectId idproducto){
-		productoInterfaz.eliminarProducto(idproducto);
-	}
-	
 }

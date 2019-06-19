@@ -7,19 +7,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ProductoAplicacionTest {
-    @Test 
-    public void testAgregarProducto() {
+    @Test public void testSomeLibraryMethod() {
         ProductoAplicacion classUnderTest = new ProductoAplicacion();
 //        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
-    @Test
-    public void validarAgregarProducto() {}
-    
-    @Test
-    public void testgetProducto() {}
-    
-    @Test
-    public void testeditarProducto() {}
-    
-    
 }
