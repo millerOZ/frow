@@ -1,16 +1,11 @@
 package com.sofka.frowFinal.modelo;
 
-import javax.validation.constraints.NotBlank;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "producto")
 public class Producto {
 	@Id
 	private ObjectId _id;
-	@NotBlank
 	private String nombre;
 	private String talla;
 	private String color;
@@ -25,12 +20,7 @@ public class Producto {
 		this.color = color;
 		this.precio = precio;
 	}
-	public Producto(String nombre, String talla, String color, String precio) {
-		this.nombre = nombre;
-		this.talla = talla;
-		this.color = color;
-		this.precio = precio;
-	}
+
 	public ObjectId get_id() {
 		return _id;
 	}

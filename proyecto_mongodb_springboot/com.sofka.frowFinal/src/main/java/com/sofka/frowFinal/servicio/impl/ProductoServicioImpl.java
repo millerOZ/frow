@@ -3,8 +3,6 @@ package com.sofka.frowFinal.servicio.impl;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.ValidationException;
-
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +18,9 @@ public class ProductoServicioImpl implements ProductoInterfaz{
 	
 	@Override
 	public void agregarProducto(Producto producto) {
-		if(producto.getNombre() != null && producto.getColor() != null && producto.getTalla() != null && producto.getPrecio() != null)
+//		if(producto.getNombre() != null && producto.getColor() != null && producto.getTalla() != null && producto.getPrecio() != null)
 			productoRepositorio.save(producto);
-		else throw new ValidationException("Debe ingresar todos los datos");
+//		else throw new ValidationException("");
 	}
 
 	@Override
