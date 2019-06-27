@@ -8,14 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sofka.frowFinal.modelo.Producto;
-import com.sofka.frowFinal.servicio.ProductoInterfaz;
+import com.sofka.frowFinal.servicio.ProductoServicio;
 import com.sofka.frowFinal.servicio.ProductoRepositorio;
 
 @Service
-public class ProductoServicioImpl implements ProductoInterfaz{
+public class ProductoServicioImpl implements ProductoServicio{
 	@Autowired
 	private ProductoRepositorio productoRepositorio;
 	
+	public ProductoServicioImpl(ProductoRepositorio productoRepositorio2) {
+		 this.productoRepositorio = productoRepositorio2;
+	}
+
 	@Override
 	public void agregarProducto(Producto producto) {
 //		if(producto.getNombre() != null && producto.getColor() != null && producto.getTalla() != null && producto.getPrecio() != null)
@@ -47,6 +51,11 @@ public class ProductoServicioImpl implements ProductoInterfaz{
 	@Override
 	public Optional<Producto> consultaProducto(ObjectId id) {
 		return productoRepositorio.findById(id);
+	}
+
+	@Override
+	public Producto guardar(Producto producto) {
+		return productoRepositorio.save(producto);
 	}
  
 }

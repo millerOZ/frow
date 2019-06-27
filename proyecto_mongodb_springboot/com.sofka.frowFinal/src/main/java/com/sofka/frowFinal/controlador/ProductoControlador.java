@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sofka.frowFinal.modelo.Producto;
-import com.sofka.frowFinal.servicio.ProductoInterfaz;
+import com.sofka.frowFinal.servicio.ProductoServicio;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/producto")
 public class ProductoControlador {
 	@Autowired
-	private ProductoInterfaz productoInterfaz;
+	private ProductoServicio productoInterfaz;
 	
 	@GetMapping
 	public List<Producto> getProductos(){
