@@ -9,4 +9,5 @@ import com.sofka.frowFinal.modelo.Producto;
 @Repository
 public interface ProductoRepositorio extends MongoRepository<Producto, ObjectId> {
 
+	Producto findByNombre(String nombre);
 }

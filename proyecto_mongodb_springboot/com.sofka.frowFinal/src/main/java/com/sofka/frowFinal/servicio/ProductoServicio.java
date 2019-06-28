@@ -15,5 +15,20 @@ public interface ProductoServicio {
 	public void agregarProducto(Producto producto);
 	public void editarProducto(ObjectId id,Producto producto);
 	public void eliminarProducto(ObjectId id);
-	public Optional<Producto> consultaProducto(ObjectId id);
+	public Optional<Producto> consultaProductoId(ObjectId idproducto);
+	public Producto findByNombre(String nombre);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

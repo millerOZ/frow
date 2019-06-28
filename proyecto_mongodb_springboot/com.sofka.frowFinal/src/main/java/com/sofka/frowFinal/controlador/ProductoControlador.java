@@ -20,30 +20,41 @@ import com.sofka.frowFinal.servicio.ProductoServicio;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/producto")
+@RequestMapping("/producto") 
 public class ProductoControlador {
 	@Autowired
-	private ProductoServicio productoInterfaz;
+	private ProductoServicio productoServicio;
 	
 	@GetMapping
 	public List<Producto> getProductos(){
-		return productoInterfaz.getProductos();
+		return productoServicio.getProductos();
 	}
 	@GetMapping("/{idproducto}")
 	public Optional<Producto> consultaProducto(@PathVariable(value = "idproducto") ObjectId idproducto) {
-		return  productoInterfaz.consultaProducto(idproducto);
+		return  productoServicio.consultaProductoId(idproducto);
+	}
+	@GetMapping("/getNombre/{nombre}")
+	public Producto consultaProductoPorNombre(@PathVariable(value = "nombre") String nombre) {
+		return  productoServicio.findByNombre(nombre);
+	}
+	@GetMapping("/home")
+	public String saludoBienvenido() {
+		return "BIENVENIDOS";
 	}
 	@PostMapping
 	public void agregarProducto(@RequestBody Producto producto) {
-		productoInterfaz.agregarProducto(producto);
+		productoServicio.agregarProducto(producto);
 	}
 	@PutMapping("/editar/{idproducto}")
 	public void editarProducto(@PathVariable(value = "idproducto") ObjectId idproducto, @RequestBody Producto producto) {
-		productoInterfaz.editarProducto(idproducto, producto);
+		productoServicio.editarProducto(idproducto, producto);
 	}
 	@DeleteMapping("/{idproducto}")
 	public void eliminarProducto(@PathVariable(value = "idproducto") ObjectId idproducto){
-		productoInterfaz.eliminarProducto(idproducto);
+		productoServicio.eliminarProducto(idproducto);
 	}
+	
+	
+	
 	
 }
