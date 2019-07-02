@@ -19,8 +19,8 @@ import com.sofka.frowFinal.modelo.Producto;
 import com.sofka.frowFinal.servicio.ProductoServicio;
 
 @CrossOrigin
-@RestController
 @RequestMapping("/producto") 
+@RestController
 public class ProductoControlador {
 	@Autowired
 	private ProductoServicio productoServicio;
@@ -37,9 +37,9 @@ public class ProductoControlador {
 	public Producto consultaProductoPorNombre(@PathVariable(value = "nombre") String nombre) {
 		return  productoServicio.findByNombre(nombre);
 	}
-	@GetMapping("/home")
-	public String saludoBienvenido() {
-		return "BIENVENIDOS";
+	@GetMapping("/hello-world")
+	public String helloWorld() {
+		 return "Hello World";
 	}
 	@PostMapping
 	public void agregarProducto(@RequestBody Producto producto) {
@@ -53,8 +53,6 @@ public class ProductoControlador {
 	public void eliminarProducto(@PathVariable(value = "idproducto") ObjectId idproducto){
 		productoServicio.eliminarProducto(idproducto);
 	}
-	
-	
 	
 	
 }

@@ -19,7 +19,6 @@ public class ProductoServicioImpl implements ProductoServicio{
 	@Autowired
 	private ProductoRepositorio productoRepositorio;
 	
-	
 	public ProductoServicioImpl(ProductoRepositorio productoRepositorio2) {
 		this.productoRepositorio = productoRepositorio2;
 	}
@@ -57,12 +56,6 @@ public class ProductoServicioImpl implements ProductoServicio{
 	public Producto guardar(Producto producto) {
 		return productoRepositorio.save(producto);
 	}
-
-//	@Override
-//	public Optional<Producto> consultaPorId(ObjectId id) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 	@Override
 	public Optional<Producto> consultaProductoId(ObjectId idproducto) {
