@@ -79,13 +79,11 @@ public class ProductoServiciosTest {
 			System.out.println("Error producto no existe");
 		}
 	}
-//	@Test
-//	public void testEliminarTodosProducto() {
-//		Producto producto = new Producto("CAMISA VERDE","S","verde","$70.000");
-//			 
-//			productoRepositorio.count()
-//			 verify(productoRepositorio,times(1)).deleteById(producto.get_id());
-//	}
+	@Test
+	public void testEliminarTodosProducto() {
+		productoRepositorio.deleteAll();
+	    verify(productoRepositorio,times(1)).deleteAll(); 
+	}
 	@Test
 	public void testEditarProducto() {
 		Producto producto = new Producto("CAMISA VERDE","S","verde","$70.000");
